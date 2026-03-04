@@ -1,13 +1,12 @@
 services:
   db:
     image: mariadb:11
-    container_name: mariadb
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: root
-      MARIADB_DATABASE: db
-      MARIADB_USER: admin
-      MARIADB_PASSWORD: admin123
+      MARIADB_DATABASE: <database name>
+      MARIADB_USER: <database user>
+      MARIADB_PASSWORD: <database password>
     ports:
       - "8001:3306"
     volumes:
@@ -20,7 +19,7 @@ services:
       - db
     environment:
       ENVIRONMENT: production
-      MARIADB_CONNECTION_STRING: mysql+pymysql://admin:admin123@db:3306/db
+      MARIADB_CONNECTION_STRING: mysql+pymysql://<database user>:<database password>@db:3306/<database name>
       ADMIN_EMAIL: admin@email.com
       ADMIN_PASSWORD: admin123
     ports:

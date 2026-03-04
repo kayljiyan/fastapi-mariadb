@@ -1,14 +1,14 @@
-FROM python:3.13-slim
+FROM <image>:<tag>
 
-WORKDIR /app
+WORKDIR <path>
 
 # Install dependencies
-COPY requirements.txt .
+COPY <file/host path> <working directory>
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy source code
-COPY src/ ./src/
+COPY <file/host path> <working directory>
 
-EXPOSE 8000
+EXPOSE <port number>
 
 CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
