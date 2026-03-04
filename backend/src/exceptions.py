@@ -8,6 +8,5 @@ class SampleError(HTTPException):
     Base template for future exceptions
     """
 
-    def __init__(self) -> None:
-        message = ""
+    def __init__(self, message: str) -> None:
         super().__init__(status_code=400, detail=message)
